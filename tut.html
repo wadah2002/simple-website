@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="cv.css">
+    <title>My Website</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header {
+            background-color: lightgray;
+            color: #191970;
+            padding: 50px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #191970;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav a {
+            color: lightgray;
+            background-color: #191970;
+            text-decoration: none;
+            padding: 35px 20px;
+            margin-bottom: 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #191970;
+            color: #ffffff;
+        }
+
+        .section {
+            padding: 100px;
+            display: none;
+            background-color: lightgray;
+            color: #191970;
+            flex-grow: 1;
+        }
+
+        /* .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        } */
+
+        .project-thumbnail {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+        }
+
+        .contact-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-form button {
+            margin-left: 75px;
+            align-items: center;
+
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #191970;
+            border: 2px solid #191970;
+            border-radius: 10px;
+            padding: 10px 25px;
+            background: transparent;
+            max-width: 190px;
+        }
+
+        input:active,
+        textarea:active {
+            box-shadow: 2px 2px 15px #191970 inset;
+
+        }
+
+        #send-btn {
+            width: 9em;
+            height: 3em;
+            border-radius: 30em;
+            font-size: 12px;
+            font-family: inherit;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            color: #191970;
+            border-color: #191970;
+        }
+
+        #send-btn::before {
+            content: '';
+            width: 0;
+            height: 3em;
+            border-radius: 30em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right, #6262ff 0%, lightgray 100%);
+            transition: .5s ease;
+            display: block;
+            z-index: -1;
+        }
+
+        #send-btn:hover::before {
+            width: 9em;
+            color: #ffffff;
+        }
+        #view-btn {
+            width: 100px;
+            height: 32px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to right, #6262ff, lightgray, #ffffff, #ffffff, lightgray, #6262ff);
+            background-size: 250%;
+            background-position: left;
+            background-color: black;
+            color: #191970;
+            cursor: pointer;
+            transition-duration: 1s;
+            overflow: hidden;
+        }
+
+        #view-btn::before {
+            color: #000000;
+            width: 97%;
+            height: 90%;
+            border-radius: 8px;
+            transition-duration: 1s;
+            background-color: rgba(0, 0, 0, 0.842);
+            background-size: 200%;
+        }
+
+        #view-btn:hover {
+            background-position: right;
+            transition-duration: 1s;
+        }
+
+        #view-btn:hover::before {
+            background-position: right;
+            transition-duration: 1s;
+        }
+
+        #view-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('nav a').click(function (e) {
+                e.preventDefault();
+                var targetSection = $(this).attr('href');
+                $('.section').hide();
+                $(targetSection).slideDown();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="google_translate_element"></div>
+        <h1>My Resume Website</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home Screen</a>
+        <a href="#about">About</a>
+        <a href="#course">Courses</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="section" id="home">
+        <h2>Home Screen</h2>
+        <p>Welcome to my resume website!</p>
+    </div>
+
+    <div class="section" id="about">
+        <h2>About Me</h2>
+        <div style="display: flex; align-items: center;">
+            <p>Hi, I'm Wadah, a passionate front-end web developer. I enjoy creating user-friendly interfaces and
+                functional
+                websites.</p>
+        </div>
+    </div>
+
+    <div class="section" id="course">
+        <h2>Courses</h2>
+        <div style="display: flex; justify-content: center;">
+            <div style="margin-right: 80px;">
+                <h4>SQL for data science course</h4>
+                <button id="view-btn"
+                    onclick="window.open('https:coursera.org/share/9422d828a730c9fc7cddadbfab21be8e','_blank')">
+                    View certificate</button>
+            </div>
+            <div>
+                <h4>Database oracle by SQL</h4>
+                <button id="view-btn"
+                    onclick="window.open('https:www.m3aarf.com/student/certificate/12371902743','_blank')">
+                    View certificate</button>
+            </div>
+            <!--<img src="project1-thumbnail.jpg" alt="Project 1" class="project-thumbnail">
+            <img src="project2-thumbnail.jpg" alt="Project 2" class="project-thumbnail">
+            <img src="project3-thumbnail.jpg" alt="Project 3" class="project-thumbnail"> -->
+        </div>
+    </div>
+
+    <div class="section" id="education">
+        <h2>Education</h2>
+        <p>Al-jouf university graduate</p>
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Contact Me</h2>
+        <form action="submit-form.php" method="post" class="contact-form">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button id="send-btn" type="submit">Send</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,ar',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, 'google_translate_element');
+        }
+      </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
